@@ -22,6 +22,13 @@ class Command(BaseCommand):
     password = app_settings.TRANSIFEX_PASSWORD
     host = app_settings.TRANSIFEX_HOST
 
+    # This should probably be replaced in the future with an add_argument()
+    # method.  In this meantime, this gets us compatibility with Django 1.8.
+    # 
+    # https://docs.djangoproject.com/en/1.8/howto/custom-management-commands/
+    #   #accepting-optional-arguments
+    args = 'command'
+
     @property
     def help(self):
         """
